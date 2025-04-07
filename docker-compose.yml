@@ -1,0 +1,9 @@
+services:
+  dudenbot:
+    build: .
+    container_name: duden-bot
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    restart: unless-stopped
