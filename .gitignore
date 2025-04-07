@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.env.*
+
+# Virtualenv
+venv/
+.venv/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Playwright cache
+playwright/.cache/
+
+# Logs
+*.log
+
+# OS junk
+Thumbs.db
+
+# Misc
+*.sqlite3
