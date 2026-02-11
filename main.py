@@ -34,7 +34,7 @@ async def say(interaction: discord.Interaction, input: str):
 
 @bot.tree.command(name="word", description="Gives you the definition of a word in the Duden")
 async def word(interaction: discord.Interaction, input: str):
-    word = duden.get(str)
+    word = duden.get(input)
     await interaction.response.send_message(f"""
     Wort: {word.title}
     Aussprache: {word.phonetic}
