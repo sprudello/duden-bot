@@ -6,6 +6,7 @@ from discord import app_commands
 from discord.ext import commands, tasks
 from datetime import datetime
 import pytz
+import duden
 
 from responses import get_response
 from duden_scrape import get_wort_des_tages
@@ -30,6 +31,24 @@ async def on_ready():
 async def say(interaction: discord.Interaction, input: str):
     response = get_response(input)
     await interaction.response.send_message(response)
+
+@bot.tree.command(name="word", description="Gives you the definition of a word in the Duden")
+async def word(interaction: discord.Interaction, input: str):
+    word = duden.get(str)
+    await interaction.response.send_message(f"""
+    Wort: {word.title}
+    Aussprache: {word.phonetic}
+    Wortart: {word.part_of_speech}
+    Wortfrequenz: {word.frequency} von 5
+    Nutzung: {word.usage}
+    Worttrennung {word.word_separation}
+    Bedeutung: {word.meaning_overview}
+    Synonyme: {word.synonyms}
+    Herkunft: {word.origin}
+    Beispiele: {word.examples}
+    Grammatik: {word.grammar_overview}
+    Aussprache: {word.pronunciation_audio_url}
+    """)
 
 class DudenGroup(app_commands.Group):
     @app_commands.command(name="daily", description="Zeigt das heutige Wort des Tages an")

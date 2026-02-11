@@ -12,3 +12,4 @@ python-dotenv==1.1.0
 pytz==2025.2
 sgmllib3k==1.0.0
 yarl==1.19.0
+duden==0.19.2
